@@ -8,5 +8,6 @@ class CreateAvailabilities < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :availabilities, :tour_id
   end
 end

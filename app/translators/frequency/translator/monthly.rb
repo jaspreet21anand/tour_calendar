@@ -1,5 +1,5 @@
-module FrequencyTranslator
-  module ToHuman
+module Frequency
+  module Translator
     class Monthly
       attr_reader :dates, :week_rules, :week_numbers, :day_numbers, :every, :start_date
       DAY_MAPPING = {
@@ -8,13 +8,13 @@ module FrequencyTranslator
           7 => 'Sunday'
         }
 
+      # assuming the monthly_frequency_rule is already validated
+      # and contains atleast dates or week_rules
       def initialize(monthly_frequency_rule, start_date)
         monthly_frequency_rule = ActiveSupport::HashWithIndifferentAccess.new(monthly_frequency_rule)
         @every = monthly_frequency_rule[:every]
         @dates = monthly_frequency_rule[:dates] if monthly_frequency_rule[:dates]&.size.to_i > 0
         @week_rules = monthly_frequency_rule[:week_rules]
-        # assuming the monthly_frequency_rule is already validated
-        # and contains atleast dates or week_rules
         unless @dates
           @week_numbers = monthly_frequency_rule[:week_rules][:week_numbers]
           @day_numbers = monthly_frequency_rule[:week_rules][:day_numbers]

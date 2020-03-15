@@ -1,5 +1,5 @@
-module FrequencyTranslator
-  module ToHuman
+module Frequency
+  module Translator
     class Weekly
       attr_reader :day_numbers, :every, :start_date
       DAY_MAPPING = {

@@ -22,13 +22,16 @@ ActiveRecord::Schema.define(version: 2020_03_15_083156) do
     t.integer "tour_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tour_id"], name: "index_availabilities_on_tour_id"
   end
 
   create_table "frequency_rules", force: :cascade do |t|
     t.integer "frequency_type"
     t.json "specifics"
+    t.integer "availability_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["availability_id"], name: "index_frequency_rules_on_availability_id"
   end
 
   create_table "tours", force: :cascade do |t|
