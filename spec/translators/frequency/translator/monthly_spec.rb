@@ -22,6 +22,15 @@ RSpec.describe Frequency::Translator::Monthly do
       end
     end
 
+    context "first Monday of every 2nd month" do
+      let(:freq_rule) { { every: 2, week_rules: { week_numbers: [1], day_numbers: [1] } } }
+      subject { Frequency::Translator::Monthly.new(freq_rule, start_date) }
+
+      it do
+        expect(subject.humanized_frequency).to eq("1st Monday of every 2nd month")
+      end
+    end
+
     context "2nd and 4th, Tuesday and Saturday of every month" do
       let(:freq_rule) { { every: 1, week_rules: { week_numbers: [2, 4], day_numbers: [2, 6] } } }
       subject { Frequency::Translator::Monthly.new(freq_rule, start_date) }

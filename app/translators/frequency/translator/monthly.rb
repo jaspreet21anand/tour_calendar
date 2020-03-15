@@ -33,7 +33,7 @@ module Frequency
       private
 
         def humanized_month_text
-          every == 1 ? 'month' : "#{ every.ordinalize } #{ 'month'.pluralize(every) }"
+          every == 1 ? 'month' : "#{ every.ordinalize } #{ 'month' }"
         end
 
         def humanized_dates_text
