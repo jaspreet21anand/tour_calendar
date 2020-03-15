@@ -33,3 +33,10 @@ every week on Monday, Wednesday, and Friday
 on 25th and 27th of every 2nd months
 2nd Wednesday of every month
 ```
+
+* Steps to setup app
+  * `bundle`
+  * `rake db:create` Note: setup your database.yml before running this step
+  * `rake db:migrate`
+  * `rspec -fd`
+  * `rails c`
