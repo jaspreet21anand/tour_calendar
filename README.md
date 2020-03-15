@@ -26,4 +26,10 @@ tour_creator.persist_tour
 tour = Tour.last
 tour_viewer = TourViewer.new(tour)
 puts tour_viewer.show_availabilities
+
+# output
+starts on 2020-03-16
+every week on Monday, Wednesday, and Friday
+on 25th and 27th of every 2nd months
+2nd Wednesday of every month
 ```
