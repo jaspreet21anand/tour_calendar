@@ -1,12 +1,8 @@
 module Frequency
   module Translator
     class Monthly
+      include Frequency::Common::Constants
       attr_reader :dates, :week_rules, :week_numbers, :day_numbers, :every, :start_date
-      DAY_MAPPING = {
-          1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday',
-          4 => 'Thursday', 5 =>'Friday', 6 => 'Saturday',
-          7 => 'Sunday'
-        }
 
       # assuming the monthly_frequency_rule is already validated
       # and contains atleast dates or week_rules
@@ -30,6 +26,7 @@ module Frequency
         end
       end
 
+      # this method is inteded to return next n dates by calendar or the tour
       def next_n_occurences(n = 5)
       end
 
