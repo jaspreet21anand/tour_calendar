@@ -5,7 +5,7 @@ RSpec.describe Frequency::Translator::Weekly do
 
   describe "reverse translation from frequency rule when frequency is set to" do
     context 'Tuesday every week' do
-      let(:freq_rule) { { every: 1, days: [2] } }
+      let(:freq_rule) { { every: 1, day_numbers: [2] } }
       subject { Frequency::Translator::Weekly.new(freq_rule, start_date) }
 
       it 'should return -- every week on Tuesday' do
@@ -14,7 +14,7 @@ RSpec.describe Frequency::Translator::Weekly do
     end
 
     context 'Wednesday every 2 weeks' do
-      let(:freq_rule) { { every: 2, days: [3] } }
+      let(:freq_rule) { { every: 2, day_numbers: [3] } }
       subject { Frequency::Translator::Weekly.new(freq_rule, start_date) }
 
       it 'should return -- every 2 weeks on Wednesday' do
@@ -23,7 +23,7 @@ RSpec.describe Frequency::Translator::Weekly do
     end
 
     context 'Wednesday and Thursday every 2 weeks' do
-      let(:freq_rule) { { every: 2, days: [3, 4] } }
+      let(:freq_rule) { { every: 2, day_numbers: [3, 4] } }
       subject { Frequency::Translator::Weekly.new(freq_rule, start_date) }
 
       it 'should return -- every 2 weeks on Wednesday and Thursday' do

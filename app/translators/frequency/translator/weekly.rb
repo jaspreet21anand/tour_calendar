@@ -7,7 +7,7 @@ module Frequency
       def initialize(weekly_frequency_rule, start_date)
         weekly_frequency_rule = ActiveSupport::HashWithIndifferentAccess.new(weekly_frequency_rule)
         @every = weekly_frequency_rule[:every]
-        @day_numbers = weekly_frequency_rule[:days]
+        @day_numbers = weekly_frequency_rule[:day_numbers]
         @start_date = start_date
       end
 
